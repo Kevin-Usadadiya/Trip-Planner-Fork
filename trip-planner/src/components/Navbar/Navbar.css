@@ -1,0 +1,72 @@
+:root{
+    --blue: #0075C3;
+    --whitesmoke : whitesmoke;
+}
+
+
+.navbar_container{
+    width: 100vw;
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    background-color: white;
+    top: 0;
+    margin: 0 1em 0 0; 
+    padding: 0em 1em 0 1em;
+    
+}
+.main_logo img ,.navbar_item  {
+    margin-top: 0.6em;
+}
+
+.nav_list{
+    display: flex;
+    padding-left: 1em;
+}
+
+.navbar_item{
+    padding-left: 3rem;
+    list-style: none;
+}
+
+.navbar_item  a{
+    font-size: 1.1rem;
+    color : var(--blue);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sign_in_button{
+    font-size: 1rem;
+    border: 2px solid var(--blue);
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: whitesmoke;
+    color: #0075C3;
+    padding: 0.5em 1em;
+    margin: 0.9em 1.9em;
+}
+.sign_in_button:hover{
+    transition: all 0.5s;
+    background-color: var(--blue);
+    color: var(--whitesmoke);
+}
+.user_icons{
+    margin: 0.4em 1em 1em 1em;
+    margin-left: auto;
+    display: flex;
+    
+}
+
+.user_icons img{
+   margin-top: 1em;
+   margin-right: 3em;
+}
+
+
+
+@media screen and (max-width:700px) {
+       .user_icons{
+        display: none;
+       }
+}

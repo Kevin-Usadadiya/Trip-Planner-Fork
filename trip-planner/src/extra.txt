@@ -1,0 +1,30 @@
+ Home page cards
+ <div className='card'>
+            <img src="https://i.ibb.co/jWrY1Nh/tajmahal.jpg" className='card_image' alt="Taj Mahal" />
+            <div className='card_body'>
+              <h1 className='card_title'>Taj Mahal</h1>
+              <p className='card_sub_title'><strong>One of the 7 Wonders</strong></p>
+              <p className='card_info'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis sapiente qui sit saepe libero expedita,</p>
+              <button className='card_btn'>Book Now</button>
+            </div>
+          </div>
+
+          <div className='card'>
+            <img src="https://i.ibb.co/h11rJVF/golden-temple.jpg" className='card_image' alt="Golden Temple" />
+            <div className='card_body'>
+              <h1 className='card_title'>Golden Temple</h1>
+              <p className='card_sub_title'><strong>A Gem to Watch</strong></p>
+              <p className='card_info'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis sapiente qui sit saepe libero expedita,</p>
+              <button className='card_btn'>Book Now</button>
+            </div>
+          </div>
+
+          <div className='card'>
+            <img src="https://i.ibb.co/M7JVY7q/north.jpg" className='card_image' alt="North India" />
+            <div className='card_body'>
+              <h1 className='card_title'>Shimla</h1>
+              <p className='card_sub_title'><strong>The Best Hill Station in India</strong></p>
+              <p className='card_info'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis sapiente qui sit saepe libero expedita,</p>
+              <button className='card_btn'>Book Now</button>
+            </div>
+          </div> 
