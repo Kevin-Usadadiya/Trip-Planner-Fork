@@ -1,5 +1,6 @@
 import React from 'react'
-import './Tours.css'
+// import './Tours.css'
+import { Link } from 'react-router-dom';
 // import './bootstrap.min.css'
 
 function Tours() {
@@ -56,7 +57,7 @@ function Tours() {
                     {/* modal start */}
 
                     {/* <!-- Trigger/Open The Modal --> */}
-                    <a id="myBtn" onClick={() => { var modal = document.getElementById("myModal"); modal.style.display = "block"; }} className="btn btn-sm btn-primary px-3 border-end" style={{ borderRadius: '30 0 0 30' }}>Open Modal</a>
+                    <Link id="myBtn" onClick={() => { var modal = document.getElementById("myModal"); modal.style.display = "block"; }} className="btn btn-sm btn-primary px-3 border-end" style={{ borderRadius: '30 0 0 30' }}>Open Modal</Link>
 
                     {/* <!-- The Modal --> */}
                     <div id="myModal" className="modal">
@@ -78,7 +79,7 @@ function Tours() {
                     </div>
                     {/* modal end */}
 
-                    <a href="#book" className="btn btn-sm btn-primary px-3" style={{ borderRadius: '0 30 30 0' }}>Book Now</a>
+                    <Link to="#book" className="btn btn-sm btn-primary px-3" style={{ borderRadius: '0 30 30 0' }}>Book Now</Link>
                   </div>
                 </div>
               </div>
@@ -108,7 +109,7 @@ function Tours() {
                     {/* modal start */}
 
                     {/* <!-- Trigger/Open The Modal --> */}
-                    <a id="myBtn" onClick={() => { var modal = document.getElementById("myModal"); modal.style.display = "block"; }} className="btn btn-sm btn-primary px-3 border-end" style={{ borderRadius: '30 0 0 30' }}>Open Modal</a>
+                    <Link id="myBtn" onClick={() => { var modal = document.getElementById("myModal"); modal.style.display = "block"; }} className="btn btn-sm btn-primary px-3 border-end" style={{ borderRadius: '30 0 0 30' }}>Open Modal</Link>
 
                     {/* <!-- The Modal --> */}
                     <div id="myModal" className="modal">
@@ -130,7 +131,7 @@ function Tours() {
                     </div>
                     {/* modal end */}
 
-                    <a href="#book" className="btn btn-sm btn-primary px-3" style={{ borderRadius: '0 30 30 0' }}>Book Now</a>
+                    <Link to="#book" className="btn btn-sm btn-primary px-3" style={{ borderRadius: '0 30 30 0' }}>Book Now</Link>
                   </div>
                 </div>
               </div>
@@ -158,7 +159,7 @@ function Tours() {
                   <div className="d-flex justify-content-center mb-2">
 
                     {/* modal start */}
-                    <a id="myBtn" onClick={() => { var modal = document.getElementById("myModal"); modal.style.display = "block"; }} className="btn btn-sm btn-primary px-3 border-end" style={{ borderRadius: '30 0 0 30' }}>Open Modal</a>
+                    <Link id="myBtn" onClick={() => { var modal = document.getElementById("myModal"); modal.style.display = "block"; }} className="btn btn-sm btn-primary px-3 border-end" style={{ borderRadius: '30 0 0 30' }}>Open Modal</Link>
 
                     {/* <!-- The Modal --> */}
                     <div id="myModal" className="modal">
@@ -180,7 +181,7 @@ function Tours() {
                     </div>
                     {/* modal end */}
 
-                    <a href="#" className="btn btn-sm btn-primary px-3" style={{ borderRadius: '0 30 30 0' }}>Book Now</a>
+                    <Link to="#" className="btn btn-sm btn-primary px-3" style={{ borderRadius: '0 30 30 0' }}>Book Now</Link>
                   </div>
                 </div>
               </div>
@@ -192,7 +193,7 @@ function Tours() {
 
 
       {/* <!-- Booking Start --> */}
-      <a name='book'></a>
+      <Link name='book'></Link>
       <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div className="container">
           <div className="booking p-5">
@@ -202,7 +203,7 @@ function Tours() {
                 <h1 className="text-white mb-4">Online Booking</h1>
                 <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
                 <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                <a className="btn btn-outline-light py-3 px-5 mt-2" href="">Read More</a>
+                <Link className="btn btn-outline-light py-3 px-5 mt-2" to="">Read More</Link>
               </div>
               <div className="col-md-6">
                 <h1 className="text-white mb-4">Book A Tour</h1>
