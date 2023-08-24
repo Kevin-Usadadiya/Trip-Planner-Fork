@@ -13,7 +13,7 @@ function Login() {
   const {googleSignIn, user} = UserAuth()
   const navigate = useNavigate()
 
-    const handleGoogleSignIn = async() => {
+  const handleGoogleSignIn = async() => {
         
     try{
         await googleSignIn()

@@ -133,16 +133,20 @@ function Stories() {
 
             <div className="stories_input-icons">
               <form>
+                <span>
+                <i class="fas fa-search">
+          </i>
                 <input
                   type="text"
                   placeholder="Search Place"
                   className="stories_searchbar"
                 />
-                <img
+               </span>
+                {/* <img
                   src="https://i.ibb.co/sWtCf9G/search.png"
                   alt="search"
                   className="stories_search_btn"
-                />
+                /> */}
               </form>
             </div>
             <br />
