@@ -6,7 +6,7 @@
 /* ============================= Home Page Main Photo ============================= */
 
 .home_container{
-    width: 100vw;
+    width: 100%;
 }
 
 .home_photo{
@@ -14,11 +14,12 @@
     justify-content: center;
     align-items: center;
     
+    
 }
 
 .home_photo img{
-    filter:opacity(0.8);
-    width: 75%;
+    width: 100%;
+    object-fit: cover;
 
     
 }

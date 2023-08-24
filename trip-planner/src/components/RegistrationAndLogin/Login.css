@@ -1,0 +1,84 @@
+.login_main_container{
+    margin-top: 8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login_sub_container{
+    border: 2px solid rgb(61, 61, 202);
+    box-shadow:4px 4px 3px #82bce4;
+    padding: 2em;
+    border-radius: 20px;
+    margin-bottom: 3em;
+}
+.login_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em 2em;
+    
+}
+
+.login_heading{
+    margin-top: 0;
+    text-align: center;
+    text-shadow:2px 2px 3px #82bce4;
+    color: #0075C3;
+}
+.form_element {
+    line-height: 2em;
+}
+.form_element p{
+    margin-bottom: 10px;
+}
+
+
+.form_element > input{
+    width: 350px;
+    font-size: 16px;
+    padding: 1em;
+    border-radius: 0.5em;
+    
+}
+.form_element > a{
+    text-decoration: none;
+    color: #0075C3;  
+}
+
+.login_button{
+    display: flex;
+    justify-content: center;
+}
+
+.create_account {
+    margin-top: 2em;
+    text-align: center;
+}
+.create_account > a{
+    text-decoration: none;
+    color: #0075C3;  
+}
+
+.login_button > button{
+    margin: 1.3em 0em;
+    border: none;
+    background-color: #0075C3;
+    font-size: 1.1em;
+    padding: 0.5em 1.9em;
+    border-radius: 0.3em;
+    color: whitesmoke;
+}
+.additional_login_button{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+.additional_login_button > button{
+    border: none;
+    background-color: #0075C3;
+    font-size: 1em;
+    padding:0.4em 0.9em;
+    border-radius: 0.3em;
+    color: whitesmoke;
+}
