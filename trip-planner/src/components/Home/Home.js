@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Home.css'
+import i1 from './home.png'
 
 // Swiper Js Library Modules.
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -48,7 +49,7 @@ function Home() {
 
       {/* ============================= Home Page Main Photo ============================= */}
       <div className='home_photo'>
-        <img src="https://i.ibb.co/VCKjmpD/ballon.jpg" alt="HOMEPICTURE" />
+        <img src={i1} alt="HOMEPICTURE" />
       </div>
 
       {/* ============================= Most Popular Tours ============================= */}
