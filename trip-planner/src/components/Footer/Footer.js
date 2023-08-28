@@ -5,9 +5,6 @@ import './Footer.css'
 function Footer() {
   return (
     <div>
-      {/* <div className='footer_image'>
-        <img src="https://wanderon.in/assets/images/phone-footer.svg" alt="Footer Image" />
-      </div> */}
       <footer>
         <div className='footer_info'>
 
@@ -28,7 +25,7 @@ function Footer() {
 
         <div className="footer_gallery">
 
-                  <img src="https://i.ibb.co/0rSQdsh/Gallery-2.jpg" alt="" width="400px"/>
+                  <img src="https://i.ibb.co/0rSQdsh/Gallery-2.jpg" alt="" width="440px"/>
             <div className='footer_gallery_images'>
                   <img src="https://i.ibb.co/Z1Dsxfv/Gallery-3.jpg" alt="" width="250px"/>
                   <img src="https://i.ibb.co/CsWTK39/Gallery-1.jpg" alt="" width="150px" />

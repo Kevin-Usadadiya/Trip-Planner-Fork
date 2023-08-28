@@ -28,6 +28,7 @@ function Navbar() {
       setState(true)
       setBarClass('fas fa-times fa-lg')
       setUlClass('nav_list active')
+      
     }
     else {
       setState(false)
@@ -60,17 +61,20 @@ function Navbar() {
         <div>
           <ul className={ulclass}>
 
-            <span className='li_img'  ><img src="https://i.ibb.co/xfdXw3j/tour-guide.png" alt="tours" width="55px" height="55px" /> <li className='navbar_item'><Link to="/tours" onClick={handleBar}>Tours</Link></li></span>
+            <span className='li_img'  ><div  className='img_adjust'>
+              <img src="https://i.ibb.co/xfdXw3j/tour-guide.png" alt="tours" width="45px" height="45px" /></div> <li className='navbar_item'><Link to="/tours" onClick={handleBar}>Tours</Link></li></span>
 
-            <span className='li_img' ><img src="https://i.ibb.co/pdB5Hdb/recreational-vehicle.png" alt="tours" width="60px" height="65px" /><li className='navbar_item'><Link to="/stories" onClick={handleBar} >Stories</Link></li></span>
+            <span className='li_img' ><div className='img_adjust'>
+              <img src="https://i.ibb.co/pdB5Hdb/recreational-vehicle.png" alt="tours" width="50px" height="55px" /></div><li className='navbar_item'><Link to="/stories" onClick={handleBar} >Stories</Link></li></span>
 
+            <span className='li_img' ><div className='img_adjust'><img src="https://i.ibb.co/g686gS9/planner.png" alt="Planner" width="40px" height="40px" /></div><li className='navbar_item'><Link to="/planner" onClick={handleBar} >Planner</Link></li></span>
+         
           </ul>
         </div>
-
         <div className='user_icons'>
           <div className='user_icons_details'>
             {
-              user?.displayName ?
+              user?.email ?
                 <button onClick={handleSignOut} className='sign_in_button'>Logout</button> :
                 <Link to='/login'><button className='sign_in_button'>Sign in</button></Link>
             }
@@ -84,6 +88,7 @@ function Navbar() {
 
 
         </div>
+       
         <div className='mobile_view_nav'>
           <i id="bar" className={barclass} onClick={handleBar}>
 

@@ -27,6 +27,7 @@ footer{
 }
 
 .footer_gallery{
+    
     margin-left:auto;
     padding-right: 70px;
 }
@@ -39,17 +40,7 @@ footer{
     grid-gap: 10px;
     padding: 10px;
 }
-/* .footer_gallery h1{
-    color:white;
-    text-align: center;
-} */
 
-/* @media screen and (max-width:500px) {
-   .footer_image img{
-        
-    }
-    
-} */
 
 @media screen and (max-width:975px) {
     .footer_gallery {
@@ -59,6 +50,7 @@ footer{
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        padding-right: 0;
     }
     .footer_gallery_images {
       
@@ -114,24 +106,3 @@ footer{
    
 }
 
-/* @media screen and (max-width:900px){
-    
-    .footer_gallery_images img:nth-child(2) {
-        display: none;
-    }
-    
-} */
-/* @media screen and (max-width:700px){
-    .footer_gallery_images img {
-        display: none;
-    }
-    .footer_item a{
-        font-size: 1.2em;
-    }
-    footer{
-        padding: 10px;
-    }
-    .footer_info{
-        padding: 10px;
-    }
-} */

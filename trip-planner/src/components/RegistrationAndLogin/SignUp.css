@@ -25,22 +25,22 @@
     text-shadow:2px 2px 3px #82bce4;
     color: #0075C3;
 }
-.form_element {
+.signup_form_element {
     line-height: 2em;
 }
-.form_element p{
+.signup_form_element p{
     margin-bottom: 10px;
 }
 
 
-.form_element > input{
+.signup_form_element > input{
     width: 350px;
     font-size: 16px;
     padding: 1em;
     border-radius: 0.5em;
     
 }
-.form_element > a{
+.signup_form_element > a{
     text-decoration: none;
     color: #0075C3;  
 }
@@ -79,4 +79,40 @@
     padding:0.4em 0.9em;
     border-radius: 0.3em;
     color: whitesmoke;
+}
+
+@media screen and (max-width:665px){
+    .signup_sub_container{
+        width: 400px;
+        padding: 2em 0em;
+    }
+    .signup_form div{
+        width: 302px;
+    }
+    .signup_form_element > input{
+        width: 312px;
+        font-size: 16px;
+        padding:  1em;
+        border-radius: 0.5em;
+    }
+    .additional_signup_button > div{
+        width: 220px!important;
+    }
+}
+@media screen and (max-width:500px){
+    .signup_form{
+        padding-top: 0;
+    }
+    .signup_sub_container {
+        width: 327px;
+    }
+    .signup_form div{
+        width: 260px;
+    }
+    .signup_form_element > input{
+        width: 260px;
+        font-size: 16px;
+        padding:0.5em 1em;
+        border-radius: 0.5em;
+    }
 }
