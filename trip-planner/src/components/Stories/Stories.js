@@ -1,89 +1,18 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
+import axios from "axios";
 import "./Stories.css";
-// import Blog from './components/Blog/Blog';
 
 function Stories() {
-  const cards = [
-    {
-      image: "https://i.ibb.co/jMtRYRg/lehpalace.jpg",
-      title: "Leh Palace",
-      text: "The Leh Palace is a historical royal palace which looks over the town of Leh-Ladakh amid the spectacular Himalayan mountain range. Sengge Namgyal built this majestic palace in 1600.",
-      category: "Palace",
-      cimage: "https://i.ibb.co/7NVtRP4/pune.png",
-      cname: "Pune",
-    },
-    {
-      image: "https://i.ibb.co/8zSNWZR/christ-church-shimla.jpg",
-      title: "Christ Church Shimla",
-      text: "During the British Raj in India, the area around the church was occupied by a huge flock of Britishers and Anglo-Indians. Since they were the followers of Christianity, they asked the government to build a place of worship for them.",
-      category: "Church",
-      cimage: "https://i.ibb.co/7NVtRP4/pune.png",
-      cname: "Pune",
-    },
-    {
-      image: "https://i.ibb.co/frTL7Xt/redfort.jpg",
-      title: "Card-4",
-      text: "Delhi, the capital of India has become a major tourist attraction over the years. The place has a vast history which is a major reason for a lot of people visiting the place. It is the heart of India. ",
-      category: "Forts",
-      cimage: "https://i.ibb.co/7NVtRP4/pune.png",
-      cname: "Pune",
-    },
-    {
-      image: "https://i.ibb.co/jMtRYRg/lehpalace.jpg",
-      title: "Card-5",
-      text: "Delhi, the capital of India has become a major tourist attraction over the years. The place has a vast history which is a major reason for a lot of people visiting the place. It is the heart of India. ",
-      category: "Palace",
-      cimage: "https://i.ibb.co/7NVtRP4/pune.png",
-      cname: "Pune",
-    },
-    {
-      image: "https://i.ibb.co/jMtRYRg/lehpalace.jpg",
-      title: "Card-6",
-      text: "Delhi, the capital of India has become a major tourist attraction over the years. The place has a vast history which is a major reason for a lot of people visiting the place. It is the heart of India.",
-      category: "Church",
-      cimage: "https://i.ibb.co/7NVtRP4/pune.png",
-      cname: "Pune",
-    },
-    {
-      image: "https://i.ibb.co/jMtRYRg/lehpalace.jpg",
-      title: "Card-7",
-      text: "Delhi, the capital of India has become a major tourist attraction over the years. The place has a vast history which is a major reason for a lot of people visiting the place. It is the heart of India.",
-      category: "Church",
-      cimage: "https://i.ibb.co/7NVtRP4/pune.png",
-      cname: "Pune",
-    },
-    {
-      image: "https://i.ibb.co/jMtRYRg/lehpalace.jpg",
-      title: "Card-8",
-      text: "Delhi, the capital of India has become a major tourist attraction over the years. The place has a vast history which is a major reason for a lot of people visiting the place. It is the heart of India.",
-      category: "Forts",
-      cimage: "https://i.ibb.co/7NVtRP4/pune.png",
-      cname: "Pune",
-    },
-    {
-      image: "https://i.ibb.co/8zSNWZR/christ-church-shimla.jpg",
-      title: "Christ Church Shimla",
-      text: "During the British Raj in India, the area around the church was occupied by a huge flock of Britishers and Anglo-Indians. Since they were the followers of Christianity, they asked the government to build a place of worship for them.",
-      category: "Palace",
-      cimage: "https://i.ibb.co/7NVtRP4/pune.png",
-      cname: "Pune",
-    },
-    {
-      image: "https://i.ibb.co/8zSNWZR/christ-church-shimla.jpg",
-      title: "Christ Church Shimla",
-      text: "During the British Raj in India, the area around the church was occupied by a huge flock of Britishers and Anglo-Indians. Since they were the followers of Christianity, they asked the government to build a place of worship for them.",
-      category: "Forts",
-      cimage: "https://i.ibb.co/7NVtRP4/pune.png",
-      cname: "Pune",
-    },
-  ];
 
+ // Logic for Fetching Stories Data from MongoDb
+
+  const [cards, setCards] = useState([]);
   const [image1, setImage] = useState(cards);
   const [imgstyle, setImgStyle] = useState("none");
   const [cardstyle, setCardStyle] = useState("grid");
-  // const [readmore, setReadmore] = useState('')
+
 
   const allItem = () => {
     const finalData = cards.filter((value) => {
@@ -97,6 +26,9 @@ function Stories() {
     });
     setImage(finalData);
   };
+
+
+
 
   const specificImg = (C) => {
     const finalData = cards.filter((value) => {
@@ -119,40 +51,68 @@ function Stories() {
     }
   }
 
-  // function savedetail(e){
-  // setReadmore('Red Fort')
-  // }
+  useEffect(()=>{
+    axios.get("http://localhost:3001/getstories")
+    .then(response => {setCards(response.data)})
+    .catch(error => {console.error('Error fetching data:', error);})
+    
+  },[])
+
+  useEffect(() => {
+    allItem(); // Call allItem whenever cards change
+  }, [cards]); // Dependency array containing cards
+
+
+
   return (
-    <div>
+    <div className="stories_body">
       <div>
         <section>
           <div className="stories_main_container">
-            <div class="stories_main_heading" style={{ textAlign: "center" }}>
-              <h1>Some Famous Places Story</h1>
+
+            <div className="famous_places">
+              <h1>Some Famous Place's Stories</h1>
             </div>
 
             <div className="stories_input-icons">
               <form>
                 <span>
-                <i class="fas fa-search">
-          </i>
+                <i class="fas fa-search stories_input-icons_set_search">
+                  </i>
                 <input
                   type="text"
                   placeholder="Search Place"
                   className="stories_searchbar"
                 />
                </span>
-                {/* <img
-                  src="https://i.ibb.co/sWtCf9G/search.png"
-                  alt="search"
-                  className="stories_search_btn"
-                /> */}
+
               </form>
             </div>
             <br />
+            <div class="first stories_card1">
+                <div>
+                  <img src="https://i.ibb.co/NSkJGZf/Dal-Lake.jpg" alt="" />
+                </div>
+                <div className="header">
+                  <div>
+                    <h3>Dal Lake</h3>
+                    <br />
+                    <p>
+                      
+                      Dal is a lake in Srinagar (Dal Lake is a misnomer as Dal in Kashmiri means lake), the summer capital of Jammu and Kashmir. The urban lake, is integral to tourism and recreation in Kashmir and is named the “Jewel in the crown of Kashmir” or “Srinagar's Jewel”.
+                    </p>
+                  </div>
+                  <br />
+                  <div class="city">
+                  </div>
+                  <br />
+                      <button className='read_more_btn'>Read More</button> 
+
+                </div>
+              </div>
+              <br/>
             <hr />
             <br />
-
             <div class="stories_filters">
               <div id="stories_div1">
                 <div>
@@ -167,15 +127,15 @@ function Stories() {
                   </button>
                   <button
                     class="stories_btn"
-                    onClick={() => specificImg("Church")}
+                    onClick={() => specificImg("Attraction")}
                   >
-                    Church
+                    Attraction
                   </button>
                   <button
                     class="stories_btn"
-                    onClick={() => specificImg("Palace")}
+                    onClick={() => specificImg("Garden")}
                   >
-                    Palace
+                    Garden
                   </button>
                   <button
                     class="stories_btn"
@@ -225,7 +185,7 @@ function Stories() {
                       <li
                         style={{ "--delay": "1" }}
                         onClick={allItem}
-                        className="stories_option"
+                        className="stories_option "
                       >
                         <img src="https://i.ibb.co/ynMVSbS/all.png" alt="" />
                         <span className="option-text">All</span>
@@ -243,16 +203,16 @@ function Stories() {
                         className="stories_option"
                         onClick={() => specificImg("Church")}
                       >
-                        <img src="https://i.ibb.co/3fV2JT8/church.png" alt="" />
-                        <span className="option-text">Church</span>
+                        <img src="https://i.ibb.co/7pPmqXY/arc-de-triomphe.png" alt="" />
+                        <span className="option-text">Attraction</span>
                       </li>
                       <li
                         style={{ "--delay": "4" }}
                         className="stories_option"
                         onClick={() => specificImg("Palace")}
                       >
-                        <img src="https://i.ibb.co/xsq4g66/palace.png" alt="" />
-                        <span className="option-text">Palace</span>
+                        <img src="https://i.ibb.co/G0WbMbx/garden.png" alt="" />
+                        <span className="option-text">Garden</span>
                       </li>
                       <li
                         style={{ "--delay": "5" }}
@@ -312,46 +272,7 @@ function Stories() {
               <hr />
               <br />
               <br />
-              <div class="first stories_card1" style={{ display: cardstyle }}>
-                <div>
-                  <img src="https://i.ibb.co/frTL7Xt/redfort.jpg" alt="" />
-                </div>
-                <div className="header">
-                  <div>
-                    <h3>Red Fort</h3>
-                    <br />
-                    <p>
-                      {" "}
-                      Delhi, the capital of India has become a major tourist
-                      attraction over the years. The place has a vast history
-                      which is a major reason for a lot of people visiting the
-                      place. It is the heart of India. Being a metropolitan
-                      city, you will find a wide range of options, from shopping
-                      markets, malls, galleries to museums and monuments.
-                      Various forts and monuments form a major part of the city,
-                      making it an amalgamation of historicity and modernity.
-                      There are various forts such as Red Fort, Humayun’s Tomb,
-                      Qutub Minar, etc. which depict the historic legacy of our
-                      country very beautifully.
-                    </p>
-                  </div>
-                  <br />
-                  <div class="city">
-                    {/* <img src="https://i.ibb.co/7NVtRP4/pune.png" alt="city" /> */}
-                    {/* <div class="city-info"> */}
-                    {/* <h3 class="city-info">Pune</h3> */}
-                    {/* </div> */}
-                  </div>
-                  <br />
-                  {/* <div>
-                      <button className='btn' onClick={savedetail}>Read More</button> 
-                    <Blog name={readmore}/>  
-                  </div> */}
-                      <button className='read_more_btn'>Read More</button> 
-
-                </div>
-              </div>
-
+              
               <br />
               <div className="stories_cards">
                 {image1.map((card, i) => (

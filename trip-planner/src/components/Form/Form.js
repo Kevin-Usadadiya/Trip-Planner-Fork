@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import axios from 'axios';
 
 import form_svg from "./form.svg";
 import payment_svg from "./payment.svg";
@@ -15,6 +16,10 @@ function Form() {
   const [isSubmitMode, setisSubmitMode] = useState(false);
   const [displaymode, setDisplayMode] = useState("block");
   const [visibility, visibilityMode] = useState("hidden");
+  const[day1, setDay1] = useState([])
+  const[day2, setDay2] = useState([])
+  const[day3, setDay3] = useState([])
+  const[cityname, setCity] = useState("")
 
   const handleProceedClick = () => {
     setisSubmitMode(true);
@@ -51,138 +56,49 @@ function Form() {
     const value = event.target.value;
     setformdata({ ...formdata, [name]: value });
   };
-  const planner_data = [
-    {
-      place_type: "Accomodation",
-      place_name: "Capital O 89586 Hotel Canada Palace & Banquet",
-      place_img: "https://i.ibb.co/z2cWbXZ/hotel.webp",
-      rating: "⭐⭐⭐",
-      time: "1hr",
-      price: "3679",
-      icon: "fas fa-regular fa-house-chimney",
-      icon_color: "brown",
-      icon_bgcolor: "blanchedalmond",
-    },
-    {
-      place_type: "Attraction",
-      place_name: "Kankaria",
-      place_img: "https://i.ibb.co/FmtVXWw/kankaria.png",
-      time: "2hr",
-      rating: " ",
-      price: " ",
-      icon: "fas fa-solid fa-camera-retro",
-      icon_color: "black",
-      icon_bgcolor: "rgb(121, 232, 121)",
-    },
-    {
-      place_type: "Attraction",
-      place_name: "Science City",
-      place_img: "https://i.ibb.co/mvH6958/gujarat-science-city-1-1626372058.jpg",
-      rating: " ",
-      time: "1hr",
-      price: " ",
-      icon: "fas fa-solid fa-camera-retro",
-      icon_color: "black",
-      icon_bgcolor: "rgb(121, 232, 121)",
-    },
-    {
-      place_type: " ",
-      rating: " ",
-      time: " ",
-      price: " ",
-      icon: " ",
-      icon_color: " ",
-      icon_bgcolor: " ",
-      place_name: "Lunch Time",
-      place_img: "https://i.ibb.co/TYD3j7F/meal.png",
-    },
-    {
-      place_type: "Attraction",
-      place_name: "Auto World Vintage Car Museum",
-      place_img: "https://i.ibb.co/FgfPqXC/auto-vintage-museum.jpg",
-      rating: " ",
-      time: "1hr",
-      price: " ",
-      icon: "fas fa-solid fa-camera-retro",
-      icon_color: "black",
-      icon_bgcolor: "rgb(121, 232, 121)",
-    },
-    {
-      place_type: "Attraction",
-      place_name: "Balvatika And N.h. Museum",
-      place_img: "https://i.ibb.co/BPpfxRG/balvatika.jpg",
-      rating: " ",
-      time: "3hr",
-      price: " ",
-      icon: "fas fa-solid fa-camera-retro",
-      icon_color: "black",
-      icon_bgcolor: "rgb(121, 232, 121)",
-    },
-    {
-      place_type: " ",
-      rating: " ",
-      time: " ",
-      price: " ",
-      icon: " ",
-      icon_color: " ",
-      icon_bgcolor: " ",
-      place_name: "Dinner Time",
-      place_img: "https://i.ibb.co/qRG8xCK/dinner.png",
-    },
-  ];
-  const planner_data2 = [
-    {
-      place_type: "Accomodation",
-      place_name: "Capital O 89586 Hotel Canada Palace & Banquet",
-      place_img: "https://i.ibb.co/z2cWbXZ/hotel.webp",
-      rating: "⭐⭐⭐",
-      time: "1hr",
-      price: "INR 3679",
-    },
-    {
-      place_type: "Accomodation",
-      place_name: "Capital O 89586 Hotel Canada Palace & Banquet",
-      place_img: "https://i.ibb.co/z2cWbXZ/hotel.webp",
-      rating: "⭐⭐⭐",
-      time: "1hr",
-      price: "INR 3679",
-    },
-    {
-      place_type: "Accomodation",
-      place_name: "Capital O 89586 Hotel Canada Palace & Banquet",
-      place_img: "https://i.ibb.co/z2cWbXZ/hotel.webp",
-      rating: "⭐⭐⭐",
-      time: "1hr",
-      price: "INR 3679",
-    },
-    {
-      place_type: "Accomodation",
-      place_name: "Capital O 89586 Hotel Canada Palace & Banquet",
-      place_img: "https://i.ibb.co/z2cWbXZ/hotel.webp",
-      rating: "⭐⭐⭐",
-      time: "1hr",
-      price: "INR 3679",
-    },
-  ];
-
-  const [daysdata, setDaysData] = useState(planner_data);
+ 
+  const [daysdata, setDaysData] = useState(day1);
   
   const handleButton1 = () => {
-    setDaysData(planner_data);
+      setDaysData(day1);
   };
   const handleButton2 = () => {
-    setDaysData(planner_data2);
+    setDaysData(day2);
   };
-  // function handleButton3(){
-  //   const days_data = planner_data;
-  // }
+  const handleButton3 = () => {
+    setDaysData(day3);
+  };
+ 
+  const handleSubmit =(e)=>{
+    e.preventDefault();
+      // Send POST request to server with the cityname
+    axios.post('http://localhost:3001/getplanner', {cityname})
+    .then(response => {
+      const {cityname,  Day1, Day2, Day3} = response.data;
+      setDay1(Day1);
+      setDay2(Day2);
+      setDay3(Day3);
+      // setCity(cityname);
+    })
+    .catch(err => console.log(err))
+
+    handleProceedClick();
+  }
+  
+   
+
+  // useEffect(()=>{
+  //   // handleProceedClick()
+  //    handleButton1()
+  // },[daysdata])
 
   return (
     <>
       <div className={`container ${isSubmitMode ? "proceed-mode" : ""}`}>
         <div class="forms-container">
           <div class="form_submit-proceed" style={{ display: displaymode }}>
-            <form className="submit-form ">
+            
+            <form className="submit-form " onSubmit={handleSubmit}>
               <h2 class="title">Details</h2>
               <div class="input-field">
                 <i class="fas fa-sharp fa-solid fa-city"></i>
@@ -190,7 +106,7 @@ function Form() {
                   type="text"
                   placeholder="City Name"
                   name="cityname"
-                  onChange={handlechange}
+                  onChange={(e)=> setCity(e.target.value)}
                   required
                 />
               </div>
@@ -299,7 +215,7 @@ function Form() {
                   Day2
                 </button>
 
-                <button type="button" className="planner_day_button">
+                <button type="button" className="planner_day_button"  onClick={handleButton3}>
                   <img
                     src="https://i.ibb.co/0Zz2y03/calendar-8.png"
                     alt="day3"

@@ -53,3 +53,277 @@
               <input type="submit" class="btn" value="Back To Form" />
 
             </form> */}
+
+
+
+             const tours_data = [
+  { title : "New Delhi",
+    sub_title : "Delhi NCR",
+    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
+    img : "https://i.ibb.co/cwY6Hnc/delhi.png"
+  },
+  { title : "GOA",
+    sub_title : "Beaches",
+    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
+    img : "https://i.ibb.co/RSkqkng/beach-chair.png"
+  },
+  { title : "Agra",
+    sub_title : "Heritage City",
+    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
+    img : "https://i.ibb.co/zhV3Rsv/taj-mahal.png"
+  },
+  { title : "Kochi",
+    sub_title : "City of Rivers",
+    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
+    img : "https://i.ibb.co/CBQRj31/kochi.png"
+  },
+  { title : "Mysore",
+    sub_title : "City of Artifacts",
+    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
+    img : "https://i.ibb.co/pfJ10zf/mysore.png"
+  },
+  { title : "Shimla",
+  sub_title : "City of Visitors",
+  description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
+  img : "https://i.ibb.co/7nDKgQ6/shimla.png"
+},
+  { title : "Mumbai",
+    sub_title : "City of Richness",
+    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
+    img : "https://i.ibb.co/hfJSnXc/goi.png"
+  },
+  { title : "Jaipur",
+    sub_title : "The Pink City",
+    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
+    img : "https://i.ibb.co/9qsV8Mt/jaipur.png"
+  },
+
+  { title : "Sikkim",
+    sub_title : "Delhi NCR",
+    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
+    img : "https://i.ibb.co/kxW7J3V/Sikkim.png"
+  }
+  ]
+
+
+
+ // const home_card = home_data[0]
+  // Arrays of Objects ==> All data like Images, Content, etc..
+  // const cardData = [
+  //   {title: "Taj Mahal", url: "https://i.ibb.co/jWrY1Nh/tajmahal.jpg", subtitle:"One of the 7 Wonders", info:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis sapiente qui sit saepe libero expedita"},
+
+  //   {title: "Golden Temple", url: "https://i.ibb.co/h11rJVF/golden-temple.jpg", subtitle:"A Gem to Watch", info:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis sapiente qui sit saepe libero expedita"},
+
+  //   {title: "Shimla", url: "https://i.ibb.co/M7JVY7q/north.jpg", subtitle:"The Best Hill Station in India", info:"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis sapiente qui sit saepe libero expedita"},
+  // ]
+
+  // const exploreData = [
+  //   {title:"BACKPACKING ",url:"https://i.ibb.co/vdh103q/holiday.png"},
+  //   {title:"RELIGIOUS ",url:"https://i.ibb.co/rGVP8bN/temple.png"},
+  //   {title:"MONUMENTAL ",url:"https://i.ibb.co/hfJSnXc/goi.png"},
+  //   {title:"HIKING ",url:"https://i.ibb.co/71qsf7V/hiking.png"},
+  // ]
+
+  // const reviewData = [
+  //   {url : "https://i.ibb.co/NFD7mxk/e.jpg", review_content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. uos voluptate harum. Magni rerum nulla ex facilis aliquam non?" ,rating : "⭐⭐⭐⭐⭐"},
+
+  //   {url : "https://i.ibb.co/995LbFg/c.jpg", review_content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. uos voluptate harum. Magni rerum nulla ex facilis aliquam non?",rating : "⭐⭐⭐⭐"},
+
+  //   {url : "https://i.ibb.co/MVzCMJq/b.jpg", review_content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. uos voluptate harum. Magni rerum nulla ex facilis aliquam non?",rating : "⭐⭐⭐⭐"},
+
+  //   {url : "https://i.ibb.co/dL14kSY/a.jpg", review_content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. uos voluptate harum. Magni rerum nulla ex facilis aliquam non?",rating : "⭐⭐⭐"},
+
+  //   {url : "https://i.ibb.co/7pwNKhq/hero.jpg", review_content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. uos voluptate harum. Magni rerum nulla ex facilis aliquam non?",rating : "⭐⭐⭐⭐⭐"},
+
+  //   {url : "https://i.ibb.co/m6gMpj5/g.jpg", review_content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. uos voluptate harum. Magni rerum nulla ex facilis aliquam non?",rating : "⭐⭐⭐⭐"}
+  // ]
+
+    const cards = [
+    {
+      image: "https://i.ibb.co/N7HM1D2/india-gate.jpg",
+      title: "India Gate",
+      text: " A prominent war memorial located in the heart of the city, India Gate commemorates the soldiers who died during World War I. Surrounded by lush green lawns, it's a popular spot for picnics and evening strolls.",
+      category: "Attraction",
+    },
+    {
+      image: "https://i.ibb.co/cvj56TV/Brindavan-Gardens.jpg" ,
+      title: "Brindavan Gardens",
+      text: "During the British Raj in India, the area around the church was occupied by a huge flock of Britishers and Anglo-Indians. Since they were the followers of Christianity, they asked the government to build a place of worship for them.",
+      category: "Garden",
+    },
+    {
+      image:"https://i.ibb.co/MZ976rQ/Humayun-s-Tomb.jpg" ,
+      title: "Humayun's Tomb",
+      text: "Another UNESCO World Heritage Site, Humayun's Tomb is a precursor to the Taj Mahal and is the final resting place of the Mughal Emperor Humayun. Its beautiful Persian-style architecture and well-maintained gardens make it a serene escape.",
+      category: "Forts",
+    },
+    {
+      image: "https://i.ibb.co/QdHm1Dc/Lotus-Temple.jpg" ,
+      title: "Lotus Temple",
+      text: "Known for its unique lotus flower-inspired design, this Bahá'í House of Worship welcomes people of all religions and beliefs for meditation and prayer. Its peaceful ambiance and contemporary architecture are worth experiencing.",
+      category: "Temples",
+    },
+    {
+      image: "https://i.ibb.co/m8n6PW8/Akshardham-Temple.jpg",
+      title: "Akshardham Temple",
+      text: "This intricate and grand temple complex showcases traditional Indian architecture, art, and culture. The main monument features intricate carvings, and the complex also includes exhibitions, musical fountain shows, and gardens.",
+      category: "Temples",
+    },
+    {
+      image: "https://i.ibb.co/FmJwKFp/Red-Fort.jpg",
+      title: "Red Fort",
+      text: "Delhi, the capital of India has become a major tourist attraction over the years. The place has a vast history which is a major reason for a lot of people visiting the place. It is the heart of India.",
+      category: "Fort",
+    },
+    {
+      image: "https://i.ibb.co/4SJC49s/Gateway-of-India.jpg" ,
+      title: "Gateway of India",
+      text: ": A symbol of Mumbai's grandeur and history, the Gateway of India is an iconic monument that overlooks the Arabian Sea. Built during the British colonial era, this architectural marvel serves as a welcoming point for visitors and offers splendid views of the sea and the Taj Mahal Palace Hotel nearby.",
+      category: "Attraction",
+    },
+    {
+      image: "https://i.ibb.co/bbVQ64p/Marine-Drive.jpg" ,
+      title: "Marine Drive",
+      text: "Also known as the 'Queen's Necklace' due to the way the streetlights shimmer along the shoreline at night, Marine Drive is a picturesque promenade that stretches along the Arabian Sea. It's a favorite spot for locals and tourists alike, offering a serene escape from the city's hustle and bustle.",
+      category: "Beaches",
+    },
+    {
+      image: "https://i.ibb.co/WHmbDRT/Chhatrapati-Shivaji-Terminus.jpg",
+      title: "Chhatrapati Shivaji Terminus (CST):",
+      text: "A UNESCO World Heritage Site, CST is a historic railway station that boasts stunning Victorian Gothic architecture. Its intricate carvings, grand dome, and intricate details make it a captivating landmark and a testament to Mumbai's colonial past.",
+      category: "Heritage Site",
+    },
+    {
+      image: "https://i.ibb.co/bbVQ64p/Marine-Drive.jpg" ,
+      title: "Ajanta Ellora caves",
+      text: "Ajanta Caves exemplifies one of the greatest achievements in ancient Buddhist rock-cut architecture. The artistic traditions at Ajanta present an important and rare specimen of art, architecture, painting, and socio-cultural, religious and political history of contemporary society in India.",
+      category: "Attraction",
+    },
+    {
+      image: "https://i.ibb.co/xm1LpXd/Somanath-Temple.jpg" ,
+      title: "Shree Somnath Jyotirling Temple",
+      text: "The Somnath temple, also called Somanātha temple or Deo Patan, is a Hindu temple located in Prabhas Patan, Veraval in Gujarat, India. It is one of the most sacred pilgrimage sites for Hindus and is the first among the twelve jyotirlinga shrines of Shiva",
+      category: "Temples",
+    },
+    {
+      image: "https://i.ibb.co/CnxMy1X/Kamet.jpg" ,
+      title: "Kamet",
+      text: "Kamet is the second-highest mountain in the Garhwal region of Uttarakhand, India, after Nanda Devi. It lies in the Chamoli District of Uttarakhand. Its appearance resembles a giant pyramid topped by a flat summit area with two peaks.",
+      category: "Mountains",
+    },
+  ];
+
+
+   // const planner_data = [
+  //   {
+  //     place_type: "Accomodation",
+  //     place_name: "Capital O 89586 Hotel Canada Palace & Banquet",
+  //     place_img: "https://i.ibb.co/z2cWbXZ/hotel.webp",
+  //     rating: "⭐⭐⭐",
+  //     time: "1hr",
+  //     price: "3679",
+  //     icon: "fas fa-regular fa-house-chimney",
+  //     icon_color: "brown",
+  //     icon_bgcolor: "blanchedalmond",
+  //   },
+  //   {
+  //     place_type: "Attraction",
+  //     place_name: "Kankaria",
+  //     place_img: "https://i.ibb.co/FmtVXWw/kankaria.png",
+  //     time: "2hr",
+  //     rating: " ",
+  //     price: " ",
+  //     icon: "fas fa-solid fa-camera-retro",
+  //     icon_color: "black",
+  //     icon_bgcolor: "rgb(121, 232, 121)",
+  //   },
+  //   {
+  //     place_type: "Attraction",
+  //     place_name: "Science City",
+  //     place_img: "https://i.ibb.co/mvH6958/gujarat-science-city-1-1626372058.jpg",
+  //     rating: " ",
+  //     time: "1hr",
+  //     price: " ",
+  //     icon: "fas fa-solid fa-camera-retro",
+  //     icon_color: "black",
+  //     icon_bgcolor: "rgb(121, 232, 121)",
+  //   },
+  //   {
+  //     place_type: " ",
+  //     rating: " ",
+  //     time: " ",
+  //     price: " ",
+  //     icon: " ",
+  //     icon_color: " ",
+  //     icon_bgcolor: " ",
+  //     place_name: "Lunch Time",
+  //     place_img: "https://i.ibb.co/TYD3j7F/meal.png",
+  //   },
+  //   {
+  //     place_type: "Attraction",
+  //     place_name: "Auto World Vintage Car Museum",
+  //     place_img: "https://i.ibb.co/FgfPqXC/auto-vintage-museum.jpg",
+  //     rating: " ",
+  //     time: "1hr",
+  //     price: " ",
+  //     icon: "fas fa-solid fa-camera-retro",
+  //     icon_color: "black",
+  //     icon_bgcolor: "rgb(121, 232, 121)",
+  //   },
+  //   {
+  //     place_type: "Attraction",
+  //     place_name: "Balvatika And N.h. Museum",
+  //     place_img: "https://i.ibb.co/BPpfxRG/balvatika.jpg",
+  //     rating: " ",
+  //     time: "3hr",
+  //     price: " ",
+  //     icon: "fas fa-solid fa-camera-retro",
+  //     icon_color: "black",
+  //     icon_bgcolor: "rgb(121, 232, 121)",
+  //   },
+  //   {
+  //     place_type: " ",
+  //     rating: " ",
+  //     time: " ",
+  //     price: " ",
+  //     icon: " ",
+  //     icon_color: " ",
+  //     icon_bgcolor: " ",
+  //     place_name: "Dinner Time",
+  //     place_img: "https://i.ibb.co/qRG8xCK/dinner.png",
+  //   },
+  // ];
+  // const planner_data2 = [
+  //   {
+  //     place_type: "Accomodation",
+  //     place_name: "Capital O 89586 Hotel Canada Palace & Banquet",
+  //     place_img: "https://i.ibb.co/z2cWbXZ/hotel.webp",
+  //     rating: "⭐⭐⭐",
+  //     time: "1hr",
+  //     price: "INR 3679",
+  //   },
+  //   {
+  //     place_type: "Accomodation",
+  //     place_name: "Capital O 89586 Hotel Canada Palace & Banquet",
+  //     place_img: "https://i.ibb.co/z2cWbXZ/hotel.webp",
+  //     rating: "⭐⭐⭐",
+  //     time: "1hr",
+  //     price: "INR 3679",
+  //   },
+  //   {
+  //     place_type: "Accomodation",
+  //     place_name: "Capital O 89586 Hotel Canada Palace & Banquet",
+  //     place_img: "https://i.ibb.co/z2cWbXZ/hotel.webp",
+  //     rating: "⭐⭐⭐",
+  //     time: "1hr",
+  //     price: "INR 3679",
+  //   },
+  //   {
+  //     place_type: "Accomodation",
+  //     place_name: "Capital O 89586 Hotel Canada Palace & Banquet",
+  //     place_img: "https://i.ibb.co/z2cWbXZ/hotel.webp",
+  //     rating: "⭐⭐⭐",
+  //     time: "1hr",
+  //     price: "INR 3679",
+  //   },
+  // ];
