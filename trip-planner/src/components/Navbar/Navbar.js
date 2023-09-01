@@ -68,6 +68,8 @@ function Navbar() {
               <img src="https://i.ibb.co/pdB5Hdb/recreational-vehicle.png" alt="tours" width="50px" height="55px" /></div><li className='navbar_item'><Link to="/stories" onClick={handleBar} >Stories</Link></li></span>
 
             <span className='li_img' ><div className='img_adjust'><img src="https://i.ibb.co/g686gS9/planner.png" alt="Planner" width="40px" height="40px" /></div><li className='navbar_item'><Link to="/planner" onClick={handleBar} >Planner</Link></li></span>
+
+            <span className='li_img' ><div className='img_adjust'><img src="https://i.ibb.co/2NzRRkN/blogging.png" alt="Planner" width="40px" height="40px" /></div><li className='navbar_item'><Link to="/blogs" onClick={handleBar} >Blogs</Link></li></span>
          
           </ul>
         </div>
@@ -81,10 +83,10 @@ function Navbar() {
 
           </div>
 
-          <div>
+          {/* <div>
             <img src="https://i.ibb.co/PzYs4mp/user.png" alt="User_icon"
               width="32px" height="32px" />
-          </div>
+          </div> */}
 
 
         </div>

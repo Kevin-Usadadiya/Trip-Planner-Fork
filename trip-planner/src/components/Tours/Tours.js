@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import axios from 'axios'
 import './Tours.css'
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -7,55 +8,15 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 function Tours() {
-
-  const tours_data = [
-  { title : "New Delhi",
-    sub_title : "Delhi NCR",
-    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
-    img : "https://i.ibb.co/cwY6Hnc/delhi.png"
-  },
-  { title : "GOA",
-    sub_title : "Beaches",
-    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
-    img : "https://i.ibb.co/RSkqkng/beach-chair.png"
-  },
-  { title : "Agra",
-    sub_title : "Heritage City",
-    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
-    img : "https://i.ibb.co/zhV3Rsv/taj-mahal.png"
-  },
-  { title : "Kochi",
-    sub_title : "City of Rivers",
-    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
-    img : "https://i.ibb.co/CBQRj31/kochi.png"
-  },
-  { title : "Mysore",
-    sub_title : "City of Artifacts",
-    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
-    img : "https://i.ibb.co/pfJ10zf/mysore.png"
-  },
-  { title : "Shimla",
-  sub_title : "City of Visitors",
-  description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
-  img : "https://i.ibb.co/7nDKgQ6/shimla.png"
-},
-  { title : "Mumbai",
-    sub_title : "City of Richness",
-    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
-    img : "https://i.ibb.co/hfJSnXc/goi.png"
-  },
-  { title : "Jaipur",
-    sub_title : "The Pink City",
-    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
-    img : "https://i.ibb.co/9qsV8Mt/jaipur.png"
-  },
-
-  { title : "Sikkim",
-    sub_title : "Delhi NCR",
-    description: "New Delhi is the capital of India and a part of the National Capital Territory of Delhi (NCT).",
-    img : "https://i.ibb.co/kxW7J3V/Sikkim.png"
-  }
-  ]
+  const [tours_data, setToursData] = useState([])
+ 
+  useEffect(()=>{
+      axios.get('http://localhost:3001/gettours')
+      .then(tours_data => setToursData(tours_data.data))
+      .catch(err=>console.log(err))
+  },[])
+  // console.log(tours_data)
+  
   return (
     <>    
       <div className='tours_main_container'>
@@ -122,8 +83,9 @@ function Tours() {
                                 
 
                               </div>
-                              <div className='tour_main_card_utils'>
-                                <button className='tour_main_card_button'>Read More</button>
+                              <div className='tour_main_card_utils' key={data.title}>
+                                <button className='tour_main_card_button'>
+                                 Read More</button>
                                 <button className='tour_main_card_button'>Book Now</button>
                               </div>
                               {/* <ul style={{display: 'flex'}}>

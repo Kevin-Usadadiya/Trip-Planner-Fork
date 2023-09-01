@@ -1,11 +1,11 @@
 * {
-  /* margin: 0;
-    padding: 0; */
   box-sizing: border-box;
   font-family: sans-serif;
 }
 
-body {
+.stories_body {
+  box-sizing: border-box;
+  font-family: sans-serif;
   background-color: white;
   color:rgb(10, 22, 61);
 }
@@ -19,14 +19,18 @@ body {
 }
 
 .stories_main_heading {
-  color: white;
-  max-width: 1300px;
+  /* object-fit: cover; */
+  color: linear-gradient(to bottom right, rgb(14, 12, 35), rgb(84, 70, 166),rgb(88, 70, 188));
   width: 100%;
-  height: 250px;
+  height: 400px;
   text-align: center;
   background-color: rgb(123, 123, 224);
-  background-image: linear-gradient(to bottom right, rgb(14, 12, 35), rgb(84, 70, 166),rgb(88, 70, 188));
+  /* background-image: linear-gradient(to bottom right, rgb(14, 12, 35), rgb(84, 70, 166),rgb(88, 70, 188)); */
+  /* background-size: 100% 123%; */
   border-radius: 6px;
+  background-image: url("https://i.ibb.co/x3mySHT/abc.webp" );
+  background-size: 100% 107%;
+  background-repeat: no-repeat;
   /* background-image: url('https://i.ibb.co/q7S8trB/nature.jpg');
     background-size: cover;
     align-content:center;
@@ -35,11 +39,15 @@ body {
   margin-bottom: 2rem;
 }
 
+.famous_places{
+  justify-content: center;
+  font-size: 28px;
+  margin-left: 20%;
+} 
+
 .stories_heading {
   position: absolute;
-
   top: 25%;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,8 +87,17 @@ body {
   width: 100%;
   margin-bottom: 15px;
   border-radius: 12px;
-  padding-left: 25px;
+  padding-left: 41px;
   padding-top: 15px;
+  border: none;
+  background: aliceblue;
+}
+
+.stories_input-icons_set_search{
+  font-weight: 900;
+  position: absolute;
+  padding: 17px 15px;
+
 }
 
 section {
@@ -148,7 +165,8 @@ section {
   font-family: "Roboto", sans-serif;
   font-weight: 600;
   font-size: large;
-  color: #080606;
+  /* color: #080606; */
+  color: white;
   /* color: white; */ 
   text-align: center;
   /* transition: all 0.2s; */
@@ -198,8 +216,8 @@ section {
     transition: 0.3s;
     border: 2px solid transparent;
     color: rgb(10, 22, 61);
-    border-radius: 10px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    /* border-radius: 10px; */
+    /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
     overflow: hidden;
   }
 
@@ -218,13 +236,10 @@ section {
   color: black;
   background-color: white;
   border-radius: 10px;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
-.stories_card1:hover {
-    border-color: rgb(243, 238, 234);
-  }
 
 .stories_card:hover {
   border-color: rgb(224, 224, 234);
@@ -241,19 +256,19 @@ section {
   }
 }
 
-/* @media (max-width< 600px) {
-    .stories_main_heading > h1 {
-        padding-top: 23.5%;
-      }
-} */
-
 @media (max-width< 900px) {
-    .stories_main_heading > h1 {
-        padding-top: 12.5%;
+    .famous_places {
+        margin-top: 12.5%;
       }
 }
 
 @media (max-width: 996px) {
+  .famous_places{
+    margin-left: 17%;
+    margin-top: -35px;
+    font-size: 22px;
+  }
+
   .stories_card {
     flex: 0 0 calc(50% - 20px);
   }
@@ -285,8 +300,11 @@ section {
   }
 
   .stories_card1 img {
-    width: 100%;
-    height: 100%;
+    width: 92%;
+    height: 92%;
+    margin-left: 22px;
+    margin-top: 14px;
+
   }
 
   .stories_main_heading > h1 {
@@ -317,6 +335,8 @@ section {
   .stories_card1 img {
     width: 100%;
     height: 100%;
+    margin-left: 0px;
+    margin-top: 8px;
   }
 
   .stories_card {
@@ -349,7 +369,7 @@ section {
   margin: 14px;
 }
 
-/*  */
+
 
 .filter img {
   border-radius: 30%;
@@ -397,10 +417,7 @@ section {
   /* display: none; */
 }
 
-/* .stories_select_menu.active .stories_options{
-    display: block;
 
-} */
 
 .stories_options .stories_option {
   display: flex;
@@ -420,4 +437,9 @@ section {
   height: 25px;
   width: 25px;
   margin: 15px;
+}
+
+
+.active{
+  display: show;
 }

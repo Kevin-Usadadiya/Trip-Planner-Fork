@@ -20,7 +20,7 @@ input {
   background-color: #fff;
   min-height: 100vh;
   overflow: hidden;
-  margin-top: 80px;
+  margin-top: 100px;
 }
 
 .forms-container {
@@ -43,7 +43,7 @@ input {
   z-index: 5;
 }
 
-form {
+.submit-form{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,14 +55,14 @@ form {
   grid-row: 1 / 2;
 }
 
-form.proceed-form {
+/* .proceed-form {
   opacity: 0;
   z-index: 1;
 }
 
-form.submit-form {
+.submit-form {
   z-index: 2;
-}
+} */
 
 .title {
   font-size: 2.2rem;
@@ -643,7 +643,7 @@ form.submit-form {
 .planner_card_time_attraction{
   margin: 0;
 }
-.planner_card_time_attraction i{
+.planner_card_time_attraction > i{
 margin-right: 5px;
 }
 

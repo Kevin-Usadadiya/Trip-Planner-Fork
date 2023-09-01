@@ -7,9 +7,10 @@ import Form from './components/Form/Form';
 import Login from './components/RegistrationAndLogin/Login';
 import Footer from './components/Footer/Footer';
 import { AuthContextProvider } from './context/AuthContext';
-import { BrowserRouter, Routes, Route} from 'react-router-dom'
+import { BrowserRouter , Routes, Route, Switch} from 'react-router-dom'
 import SignUp from './components/RegistrationAndLogin/SignUp';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
+import Blog from './components/Blog/Blog';
 
 export default function App() {
 
@@ -36,14 +37,7 @@ export default function App() {
 
          </Route>
 
-         <Route exact path='/tours' element={
-           <>
-             
-             <Tours/>
-             <Footer/>
-           </>
-         }>
-       </Route>
+        
 
          <Route exact path='/stories' element={
            <>
@@ -61,7 +55,24 @@ export default function App() {
            </>
          }>
        </Route>
-
+       
+       <Route exact path='/tours' element={
+           <>
+             
+             <Tours/>
+             <Footer/>
+           </>
+         }>
+       </Route>
+         <Route exact path='/blogs' element={
+           <>
+           
+             <Blog/>
+             <Footer/>
+           </>
+         }>
+       </Route>
+       
          <Route exact path='/login' element={
            <>
              <Login/>
