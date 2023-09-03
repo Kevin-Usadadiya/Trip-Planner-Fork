@@ -9,12 +9,23 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 function Tours() {
   const [tours_data, setToursData] = useState([])
+  const [reviewData, setReviewData] = useState([]);
  
   useEffect(()=>{
       axios.get('http://localhost:3001/gettours')
       .then(tours_data => setToursData(tours_data.data))
       .catch(err=>console.log(err))
+
+      axios.get('http://localhost:3001/gethomes')
+      .then(response => {
+        const { reviewData } = response.data;
+        setReviewData(reviewData);
+      })
+      .catch(error => {
+        console.log('Error fetching data:', error);
+      });
   },[])
+   
   // console.log(tours_data)
   
   return (
@@ -104,8 +115,45 @@ function Tours() {
             </div>
         </div>
 
-        <div>
+        <div className='tours_reviews'>
+        <div className='home_reviews'>
+              <h1>
+                  Customer Reviews
+              </h1>
+          
+                    <Swiper
+                      spaceBetween={30}
+                      slidesPerView={1}
+                      centeredSlides={true}
+                      autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                      }}
+                      pagination={{
+                        clickable: true,
+                      }}
+                      navigation={true}
+                      modules={[Autoplay, Pagination, Navigation]}
+                      className="mySwiper"
+                    >
 
+        {
+            reviewData.map((data, index)=>{
+              return(
+                <>
+                <SwiperSlide key={index}>
+                  <div className='swipe_slide_div'>
+                    <img src={data.url} alt="Review" className='review_image' />
+                    <p className='review_star'>{data.rating}</p>
+                    <p className='review_para'>{data.review_content}</p>
+                  </div>
+                </SwiperSlide>
+                </>
+              )
+            })
+        }
+      </Swiper>
+      </div>
         </div>
       </div>
     </>

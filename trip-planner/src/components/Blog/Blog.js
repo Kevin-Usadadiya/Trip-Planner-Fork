@@ -1,5 +1,5 @@
 import React from 'react'
-import './Blog.css'
+// import './Blog.css'
 // import { useLocation } from 'react-router-dom';
 
 function Blog() {

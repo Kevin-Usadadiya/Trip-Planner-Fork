@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from 'axios';
+import jsPDF from 'jspdf';
 
 import form_svg from "./form.svg";
 import payment_svg from "./payment.svg";
@@ -16,10 +17,12 @@ function Form() {
   const [isSubmitMode, setisSubmitMode] = useState(false);
   const [displaymode, setDisplayMode] = useState("block");
   const [visibility, visibilityMode] = useState("hidden");
-  const[day1, setDay1] = useState([])
-  const[day2, setDay2] = useState([])
-  const[day3, setDay3] = useState([])
-  const[cityname, setCity] = useState("")
+  const [day1, setDay1] = useState([])
+  const [day2, setDay2] = useState([])
+  const [day3, setDay3] = useState([])
+  const [cityname, setCity] = useState("")
+  const [combined, setCombined] = useState([])
+  // console.log(combined)
 
   const handleProceedClick = () => {
     setisSubmitMode(true);
@@ -56,11 +59,11 @@ function Form() {
     const value = event.target.value;
     setformdata({ ...formdata, [name]: value });
   };
- 
+
   const [daysdata, setDaysData] = useState(day1);
-  
+
   const handleButton1 = () => {
-      setDaysData(day1);
+    setDaysData(day1);
   };
   const handleButton2 = () => {
     setDaysData(day2);
@@ -68,36 +71,116 @@ function Form() {
   const handleButton3 = () => {
     setDaysData(day3);
   };
- 
-  const handleSubmit =(e)=>{
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-      // Send POST request to server with the cityname
-    axios.post('http://localhost:3001/getplanner', {cityname})
-    .then(response => {
-      const {cityname,  Day1, Day2, Day3} = response.data;
-      setDay1(Day1);
-      setDay2(Day2);
-      setDay3(Day3);
-      // setCity(cityname);
-    })
-    .catch(err => console.log(err))
+    // Send POST request to server with the cityname
+    axios.post('http://localhost:3001/getplanner', { cityname })
+      .then(response => {
+        const { cityname, Day1, Day2, Day3 } = response.data;
+        setDay1(Day1);
+        setDay2(Day2);
+        setDay3(Day3);
+        setCity(cityname);
+        // setCombined([cityname,...Day1,...Day2,...Day3])
+      })
+      .catch(err => console.log(err))
 
     handleProceedClick();
   }
-  
-   
 
-  // useEffect(()=>{
-  //   // handleProceedClick()
-  //    handleButton1()
-  // },[daysdata])
+// ============================= PDF GENERATION CODE ==============================================
+  const generatePDF = () => {
+    const doc = new jsPDF();
+
+    // Set the maximum width and height for the content area
+    const maxWidth = doc.internal.pageSize.getWidth();
+    const maxHeight = doc.internal.pageSize.getHeight();
+
+    doc.setFontSize(24);
+    doc.text("Your trip to " + cityname , 20, 25)
+    doc.setFontSize(18)
+    doc.text(cityname+ ", India", 25, 40)
+
+
+    let daynum = 2;
+
+    const imgWidth = 80; // Set the desired width
+    const imgHeight = 40; // Set the desired height
+
+    let leftColumnX = 15;
+    let rightColumnX = 105;
+    // Initial Y position
+    let currentY = 60;
+
+    // Function to add an image with its description and handle pagination
+    const addImageWithDescription = (imageData, description) => {
+
+      // Calculate the height required for the text
+      const textHeight = doc.getTextDimensions(description).h;
+
+      // Check if adding the description exceeds the page height
+      if (currentY + textHeight + imgHeight > maxHeight) {
+        doc.addPage();
+        doc.text("Day " + daynum ,20,15)
+        currentY = 15; // Reset Y position for the new page
+        daynum++
+      }
+      // Add the image
+      doc.addImage(imageData, 'JPEG', leftColumnX,currentY + 10, imgWidth, imgHeight); // Adjust coordinates and dimensions as needed
+      doc.setFontSize(16);
+      // Add the description text
+      doc.text(rightColumnX, currentY + 20, description); // Adjust the Y coordinate as needed
+      doc.setFontSize(18);
+      // currentY += 90; // Adjust as needed based on your layout
+
+       // Update the Y position for the next element
+      currentY += Math.max(50, textHeight) + 10; // Adjust as needed based on your layout
+    };
+
+    // Iterate through your data (e.g., Day1) to add images with descriptions
+    doc.text("Day 1",20, 55)
+    day1.map((place, index) => {
+      const imageData = place.place_img;
+ 
+      const description = `Place: ${place.place_name}\nType: ${place.place_type}\nTime: ${place.time}\n`;
+
+      // Add the image with description
+      addImageWithDescription(imageData, description);
+    });
+    
+ 
+    day2.map((place, index) => {
+      const imageData = place.place_img;
+ 
+      const description = `Place: ${place.place_name}\nType: ${place.place_type}\nTime: ${place.time}\n`;
+
+      // Add the image with description
+      addImageWithDescription(imageData, description);
+    });
+
+    day3.map((place, index) => {
+      const imageData = place.place_img;
+ 
+      const description = `Place: ${place.place_name}\nType: ${place.place_type}\nTime: ${place.time}\n`;
+
+      // Add the image with description
+      addImageWithDescription(imageData, description);
+    });
+
+    // Save the PDF
+    doc.save(`${cityname}-travel-itinerary.pdf`);
+  }
+
+
+
 
   return (
     <>
       <div className={`container ${isSubmitMode ? "proceed-mode" : ""}`}>
         <div class="forms-container">
           <div class="form_submit-proceed" style={{ display: displaymode }}>
-            
+
             <form className="submit-form " onSubmit={handleSubmit}>
               <h2 class="title">Details</h2>
               <div class="input-field">
@@ -106,7 +189,7 @@ function Form() {
                   type="text"
                   placeholder="City Name"
                   name="cityname"
-                  onChange={(e)=> setCity(e.target.value)}
+                  onChange={(e) => setCity(e.target.value)}
                   required
                 />
               </div>
@@ -129,7 +212,7 @@ function Form() {
                       type="date"
                       id="date_picker"
                       placeholder="Enter Date "
-                      required
+
                     />
                   </div>
                   <i
@@ -143,7 +226,7 @@ function Form() {
                       type="date"
                       id="date_picker"
                       placeholder="Enter Date"
-                      required
+
                     />
                   </div>
                 </div>
@@ -215,7 +298,7 @@ function Form() {
                   Day2
                 </button>
 
-                <button type="button" className="planner_day_button"  onClick={handleButton3}>
+                <button type="button" className="planner_day_button" onClick={handleButton3}>
                   <img
                     src="https://i.ibb.co/0Zz2y03/calendar-8.png"
                     alt="day3"
@@ -261,8 +344,8 @@ function Form() {
                             </SwiperSlide>
                           </>
                         );
-                      } 
-                      
+                      }
+
                       else if (data.rating && data.price === " ") {
                         return (
                           <>
@@ -303,8 +386,8 @@ function Form() {
                             </SwiperSlide>
                           </>
                         );
-                      } 
-                      
+                      }
+
                       else {
                         return (
                           <>
@@ -360,6 +443,14 @@ function Form() {
                   </Swiper>
                 </div>
               </div>
+
+              <div className="planner_pdf_download_button">
+                {/* <button onClick={renderPdf}>Download PDF</button> */}
+                <button onClick={generatePDF} className="btn solid">Download PDF</button>
+              </div>
+
+
+
             </div>
           </div>
         </div>
