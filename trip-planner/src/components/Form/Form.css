@@ -647,6 +647,13 @@ input {
 margin-right: 5px;
 }
 
+.planner_pdf_download_button{
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* ============================= Media Queries for Swiper Cards ============================== */
 @media screen and (max-width:749px) {

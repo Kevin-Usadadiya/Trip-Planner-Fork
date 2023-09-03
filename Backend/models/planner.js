@@ -43,6 +43,6 @@ const PlannerSchema = new mongoose.Schema({
     Day3 : [Day3Schema],
 })
 
-const PlannerModel = mongoose.model("planners", PlannerSchema)
+const PlannerModel = mongoose.model("plannerupdates", PlannerSchema)
 
 module.exports = PlannerModel
