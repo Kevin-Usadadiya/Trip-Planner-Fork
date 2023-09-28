@@ -50,9 +50,9 @@ function Stories() {
       setImgStyle("none");
     }
   }
-
+  axios.defaults.withCredentials = true;
   useEffect(()=>{
-    axios.get("http://localhost:3001/getstories")
+    axios.get("https://trip-planner-iq8f.vercel.app/getstories")
     .then(response => {setCards(response.data)})
     .catch(error => {console.error('Error fetching data:', error);})
     
@@ -67,7 +67,7 @@ function Stories() {
   return (
     <div className="stories_body">
       <div>
-        <section>
+        <section className="stories_body_section">
           <div className="stories_main_container">
 
             <div className="famous_places">

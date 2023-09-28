@@ -100,7 +100,7 @@
 
 }
 
-section {
+.stories_body_section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -277,7 +277,7 @@ section {
     flex: 0 0 calc(50% - 20px);
   }
 
-  section {
+  .stories_body_section {
     padding: 20px 0px;
   }
 

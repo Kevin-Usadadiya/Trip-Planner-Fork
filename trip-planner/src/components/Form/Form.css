@@ -1,26 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka&display=swap');
+*{
+  font-family: 'Fredoka', sans-serif;
 }
-
-body,
-input {
-  font-family: "Poppins", sans-serif;
-} */
-/* body{
-  position: relative;
-} */
-
 .container {
   position: relative;
   width: 100%;
   background-color: #fff;
   min-height: 100vh;
   overflow: hidden;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 
 .forms-container {
@@ -32,8 +21,9 @@ input {
 }
 
 .form_submit-proceed {
-  position: relative;
-  top: 50%;
+  position: absolute;
+  /* position: relative; */
+  top: 43%;
   transform: translate(-50%, -50%);
   left: 75%;
   width: 50%;
@@ -43,7 +33,7 @@ input {
   z-index: 5;
 }
 
-.submit-form{
+.form_submit-proceed form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -55,16 +45,16 @@ input {
   grid-row: 1 / 2;
 }
 
-/* .proceed-form {
+.form_submit-proceed form.proceed-form {
   opacity: 0;
   z-index: 1;
 }
 
-.submit-form {
+.form_submit-proceed form.submit-form {
   z-index: 2;
-} */
+}
 
-.title {
+.form_title {
   font-size: 2.2rem;
   color: #444;
   margin-bottom: 10px;
@@ -73,10 +63,11 @@ input {
 .input-field {
   max-width: 380px;
   width: 100%;
-  background-color: #f0f0f0;
-  margin: 10px 0;
+  background-color: white;
+  border: 2px solid rgb(132, 134, 245);
+  margin: 15px 23px 21px 0px;
   height: 55px;
-  border-radius: 55px;
+  border-radius: 16px;
   display: grid;
   grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
@@ -99,6 +90,8 @@ input {
   font-weight: 600;
   font-size: 1.1rem;
   color: #333;
+  width: 96%;
+  height: 92%;
 }
 
 .input-field input::placeholder {
@@ -106,98 +99,59 @@ input {
   font-weight: 500;
 }
 
-.main_start_end{
+.starting_Datepicker {
+  margin-top: 1rem;
+}
+
+.main_start_end {
   display: flex;
   /* display: table-column; */
-    width: 100%;
-    border: 0;
-    margin: 10px 0px;
-    padding: 20px;
-    outline: none;
-    background: #f5f5f5;
-    font-size: 16px;
-    border-radius: 18px;
-    resize: none;
-    color: #aaa;
-    font-weight: 500;
-  font-size: 1rem;
-
-
-}
-.start
-{ 
-    /* margin-right: 1.5rem; */
-    margin-right: 8px;
-    
-}
-
-.end
-{ 
-    /* margin-left: 1.5rem; */
-    margin-left: 8px;
-}
-
-#start_end_arrow{
-  margin-top: 6px;
+  width: 100%;
+  border: 0;
+  margin: 10px 0px;
+  padding: 20px;
+  outline: none;
+  background: #f5f5f5;
+  font-size: 16px;
+  border-radius: 18px;
+  resize: none;
+  color: #aaa;
+  font-weight: 500;
   font-size: 1rem;
 }
 
-#date_picker{
-  /* background-color: #dad3d3e8; */
-  background-color: transparent;
-  /* color: #acacac83; */
-  border: none;
-  border-radius: 6px;
-  margin-left: 6px;
-  padding: 2px;
-  font-weight: 500;
-  
+.radio_transport {
+  line-height: 2.5;
+  font-weight: 545;
+  font-size: 1.3rem;
+  color: rgb(108 101 101);
 }
 
-.radio_transport{
-  line-height: 1;
-  font-weight: 500;
-  font-size: 1.1rem;
-  color: rgb(153, 151, 151);
-  margin: 6px 0px;
+.both_radio {
+  display: flex;
 }
 
-.radio_1{
+.radio_1 {
   margin-left: 12px;
 }
 
-.radio_2{
+.radio_2 {
   margin-left: 12px;
 }
 
-
-
-.stars_hotel_dropdown{
-
-  background-color: #f0f0f0;
-  margin: 12px;
-  height: 50px;
-  border-radius: 12px;
-  border: none ;
-  padding: 0 10px;
-  font-weight: 200;
-  font-size: 14px;
-}
-
-.hotel_dropdown > span{
-  font-weight: 500;
-  font-size: 1.1rem;
-  color: rgb(153, 151, 151);
-}
-
-@media (max-width: 600px){
-  .radio_2{
-    margin-left: 86%;
+@media (max-width: 600px) {
+  .radio_1 {
+    margin-left: 30%;
+  }
+  .both_radio {
+    display: block;
+  }
+  .radio_transport {
+    line-height: 1.5;
   }
 }
 
-
-.btn {
+.form_btn {
   width: 150px;
   background-color: #5995fd;
   border: none;
@@ -212,11 +166,13 @@ input {
   transition: 0.5s;
 }
 
-.btn:hover {
+.form_btn:hover {
   background-color: #4d84e2;
+  color: white;
+  border-color: white;
 }
 .panels-container {
-  /* position: absolute; */
+  position: absolute;
   height: 100%;
   width: 100%;
   top: 0;
@@ -239,7 +195,7 @@ input {
   z-index: 6;
 }
 
-.image {
+.form_image {
   width: 100%;
   transition: transform 1.1s ease-in-out;
   transition-delay: 0.4s;
@@ -256,15 +212,15 @@ input {
 
 .left-panel {
   pointer-events: all;
-  padding: 3rem 17% 2rem 12%;
+  padding: 3rem 17% 10rem 12%;
 }
 
 .right-panel {
   pointer-events: none;
-  padding: 3rem 12% 2rem 17%;
+  padding: 3rem 12% 6rem 17%;
 }
 
-.panel .content {
+.panel .form_content {
   color: #fff;
   transition: transform 0.9s ease-in-out;
   transition-delay: 0.6s;
@@ -281,7 +237,7 @@ input {
   padding: 0.7rem 0;
 }
 
-.btn.transparent {
+.form_btn.transparent {
   margin: 0;
   background: none;
   border: 2px solid #fff;
@@ -291,8 +247,8 @@ input {
   font-size: 0.8rem;
 }
 
-.right-panel .image,
-.right-panel .content {
+.right-panel .form_image,
+.right-panel .form_content {
   transform: translateX(800px);
 }
 
@@ -303,8 +259,8 @@ input {
   right: 52%;
 }
 
-.container.proceed-mode .left-panel .image,
-.container.proceed-mode .left-panel .content {
+.container.proceed-mode .left-panel .form_image,
+.container.proceed-mode .left-panel .form_content {
   transform: translateX(-800px);
 }
 
@@ -312,18 +268,18 @@ input {
   left: 25%;
 }
 
-.container.proceed-mode form.proceed-form {
+.container.proceed-mode .form_submit-proceed form.proceed-form {
   opacity: 1;
   z-index: 2;
 }
 
-.container.proceed-mode form.submit-form {
+.container.proceed-mode .form_submit-proceed  form.submit-form {
   opacity: 0;
   z-index: 1;
 }
 
-.container.proceed-mode .right-panel .image,
-.container.proceed-mode .right-panel .content {
+.container.proceed-mode .right-panel .form_image,
+.container.proceed-mode .right-panel .form_content {
   transform: translateX(0%);
 }
 
@@ -336,7 +292,6 @@ input {
 }
 
 @media (max-width: 870px) {
-
   .container {
     min-height: 800px;
     height: 100vh;
@@ -374,13 +329,13 @@ input {
     grid-row: 1 / 2;
   }
 
-  .image {
+  .form_image {
     width: 200px;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.6s;
   }
 
-  .panel .content {
+  .panel .form_content {
     padding-right: 15%;
     transition: transform 0.9s ease-in-out;
     transition-delay: 0.8s;
@@ -395,7 +350,7 @@ input {
     padding: 0.5rem 0;
   }
 
-  .btn.transparent {
+  .form_btn.transparent {
     width: 110px;
     height: 35px;
     font-size: 0.7rem;
@@ -418,18 +373,18 @@ input {
     right: initial;
   }
 
-  .container.proceed-mode .left-panel .image,
-  .container.proceed-mode .left-panel .content {
+  .container.proceed-mode .left-panel .form_image,
+  .container.proceed-mode .left-panel .form_content {
     transform: translateY(-300px);
   }
 
-  .container.proceed-mode .right-panel .image,
-  .container.proceed-mode .right-panel .content {
+  .container.proceed-mode .right-panel .form_image,
+  .container.proceed-mode .right-panel .form_content {
     transform: translateY(0px);
   }
 
-  .right-panel .image,
-  .right-panel .content {
+  .right-panel .form_image,
+  .right-panel .form_content {
     transform: translateY(300px);
   }
 
@@ -437,17 +392,24 @@ input {
     top: 5%;
     transform: translate(-50%, 0);
   }
+
+}
+
+@media (max-width: 1272px){
+  .radio_transport {
+    line-height: 2;
+  }
 }
 
 @media (max-width: 570px) {
-  form {
+  .form_submit-proceed form {
     padding: 0 1.5rem;
   }
 
-  .image {
+  .form_image {
     display: none;
   }
-  .panel .content {
+  .panel .form_content {
     padding: 0.5rem 1rem;
   }
   .container {
@@ -465,244 +427,81 @@ input {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* General CSS for Swiper Cards */
-
-.planner_sub_container{
-  margin-top: 5em;
-  margin-left: 10em; 
-}
-
-.planner_button_container{
-  width: 250px;
-  /* width: 350px; */
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.planner_day_button{
+.planner_budget > span > i {
   text-align: center;
-  display: flex;
-  align-items: center;
-  font-size: 1em;
-  font-weight: bold;
-  background-color:#F68712;
-  color: white;
-  border-radius: 20px;
-  border: none;
-  padding: 0.7em 1.5em;
-  margin: 1em;
-  cursor: pointer;
-  transition: all ease 0.5s;
-  /* margin-left:5em; */
-}
-
-.planner_day_button:hover{
-  background-color: #e8d557;
-  color: black;
-}
-
-.planner_day_button img{
-  margin-right: 10px;
-  width: 45px;
-}
-
-.planner_card_main_container{
-  padding: 20px;
-  border-radius: 18px;
-  width: 280px;
-  height: 400px;  
-  /* margin-left: 4em; */
-}
-
-.planner_swiper-slide {
-  border: 2px solid black;
-  border-radius: 18px;
-  background-color:white;
-  /* background-image: linear-gradient(rgb(95, 95, 255), rgb(212, 212, 255)); */
-  /* background-image: linear-gradient(whitesmoke, rgb(95, 95, 255)); */
-  /* background-image: linear-gradient(rgb(251, 208, 127), rgb(255, 136, 1)); */
-  color: black;
-  padding: 20px;
-  width: 300px;
-  height: 350px;
-} 
-
-.planner_card_img{
-  display: flex;
-  
-}
-
-.planner_card_img img{
-  width: 60px;
-  border-radius: 8px;
-
-}
-
-.planner_placetype_button{
-    border:none;
-    display: flex;
-    border-radius: 5px;
-    padding: 0.2em 0.5em;
-    font-size: 1em;
-    margin: 0.5em;
-}
-
-.planner_placetype_button > i{
-  padding-right: 5px;
-}
-
-.planner_card_booknow{
-  margin-top: 10px;
-  margin-left: 45px;
-  padding: 0.5em 1em;
-  border-radius: 22px;
-  font-size: 1em;
-  border: none;
-  background-color: #F68712;
-  font-weight: bold;
-  color: white;
-  /* box-shadow: 2px -2px 4px black; */
-}
-
-/* ================== CSS for if condition in Form.js Swiper Content ================= */
-
-.planner_swipe_slide_div_expand{
-  width: 190px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.planner_card_img_expand{
-  height: 190px;
-  display: flex;
-  justify-self: center;
-  align-items: center;
-
-}
-.planner_card_img_expand img{
-      width: 150px;
-      border-radius: 8px;
-}
-
-.planner_card_description_expand > p{
-    text-decoration: underline #91c1e1 2px;
-    font-size: 1.5em;
-}
-
-.planner_card_time i{
+  line-height: 55px;
+  color: #0b0202;
+  transition: 0.5s;
+  font-size: 1.1rem;
   margin-right: 5px;
 }
 
-/* ================== CSS for else if condition in Form.js Swiper Content ================= */
-.planner_card_img_attraction{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+.planner_budget {
+  display: inline-table;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
 }
-.planner_card_img_attraction img{
+
+.planner_budget > span {
+  margin-right: 1.5rem;
+}
+
+
+.planner_showhidebtn > input {
+  margin: 1px 3px 1px 3px;
+  
+}
+.planner_showhidebtn > button {
+  margin: 1px 3px 1px 3px;
+}
+
+
+
+.pdf_btn{
   width: 150px;
-      border-radius: 8px;
-
-}
-.planner_card_description_attraction{
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.planner_card_attraction_para{
-  font-size: 1.5em;
-}
-.planner_card_description_attraction > p{
- 
-  margin-top: 0.3em;
-  margin-bottom: 0.2em;
-}
-
-.planner_card_time_attraction{
-  margin: 0;
-}
-.planner_card_time_attraction > i{
-margin-right: 5px;
-}
-
-.planner_pdf_download_button{
-  width: 250px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
-/* ============================= Media Queries for Swiper Cards ============================== */
-@media screen and (max-width:749px) {
-  
-.planner_sub_container{
-  margin-top: 5em;
-  margin-left: 10em; 
-}
-
-}
-@media screen and (max-width:576px) {
-  
-.planner_sub_container{
-  margin-top: 5em;
-  margin-left: 6em; 
-}
-.planner_button_container{
-  width: 348px;
-  margin-right: auto;
-}
-
-
-}
-@media screen and (max-width:518px) {
-  
-.planner_sub_container{
- 
-  margin-top: 3em;
-  margin-left: 3em; 
-}
-.planner_button_container{
-  width: 250px;
-  margin-left:10px;
-}
-.planner_day_button{
-  /* border-radius: 25px; */
-  font-size: 0.9em;
-  padding: 0.8em 1em;
-  margin: 0.5em;
+  background-color: #5995fd;
+  border: none;
+  outline: none;
+  height: 49px;
+  border-radius: 49px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin: 10px 0;
   cursor: pointer;
-}
-.planner_day_button img{
-  width: 35px;
+  transition: 0.5s;
 }
 
-.planner_card_booknow{
-  margin-top: 15px;
-  margin-left: 45px;
+.pdf_btn:hover {
+  background-color: #4d84e2;
 }
 
-
+/*
+.panels-container {
+ 
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
+*/
+.pdf_btn.transparent {
+  margin: 0;
+  background: none;
+  border: 2px solid #fff;
+  width: 130px;
+  height: 41px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 870px){
+  .btn.transparent {
+    width: 110px;
+    height: 35px;
+    font-size: 0.7rem;
+  }
+} 
