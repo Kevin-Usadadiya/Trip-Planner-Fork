@@ -102,7 +102,9 @@ function Tours() {
                                     <button className='tour_main_card_button'>
                                     Read More</button>
                                 </Link>
-                                <button className='tour_main_card_button'>Book Now</button>
+                                <Link to='/form' className='tour_main_card_button' >Book Now</Link>
+
+                                {/* <button className='tour_main_card_button'>Book Now</button> */}
                               </div>
                               {/* <ul style={{display: 'flex'}}>
                                 <li style={{margin: '10px'}}>{data.place1}</li>
