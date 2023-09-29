@@ -6,17 +6,21 @@ const ToursModel = require("./models/Tours.js")
 const HomeModel = require("./models/home.js")
 const StoriesModel = require("./models/stories.js");
 const PlannerModel = require("./models/planner.js");
+const BlogModel = require("./models/blog.js");
 
 require("dotenv").config();
 
-app.use(cors(
-    {
+// For online Deployment
+// app.use(cors(
+//     {
 
-        origin : ['https://nomadics.vercel.app'],
-        methods : ['POST', 'GET'],
-        credentials : true
-    }
-))
+//         origin : ['https://nomadics.vercel.app'],
+//         methods : ['POST', 'GET'],
+//         credentials : true
+//     }
+// ))
+
+app.use(cors())
 app.use(express.json())
 
 
@@ -48,6 +52,13 @@ app.post("/getplanner", (req,res)=>{
     const cityname = req.body.cityname;
 
     PlannerModel.findOne({cityname: cityname})
+    .then(response => res.json(response))
+    .catch(err => res.json(err))
+})
+
+app.get("/blogs/:cityname", (req,res)=>{
+    const cityname = req.params.cityname;
+    BlogModel.findOne({name : cityname})
     .then(response => res.json(response))
     .catch(err => res.json(err))
 })

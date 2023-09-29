@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import axios from 'axios'
 import './Tours.css'
@@ -12,11 +13,13 @@ function Tours() {
   const [reviewData, setReviewData] = useState([]);
  
   useEffect(()=>{
-      axios.get('https://trip-planner-iq8f.vercel.app/gettours')
+      // axios.get('https://trip-planner-iq8f.vercel.app/gettours')
+      axios.get('http://localhost:3001/gettours')
       .then(tours_data => setToursData(tours_data.data))
       .catch(err=>console.log(err))
 
-      axios.get('https://trip-planner-iq8f.vercel.app/gethomes')
+      // axios.get('https://trip-planner-iq8f.vercel.app/gethomes')
+      axios.get('http://localhost:3001/gethomes')
       .then(response => {
         const { reviewData } = response.data;
         setReviewData(reviewData);
@@ -95,8 +98,10 @@ function Tours() {
 
                               </div>
                               <div className='tour_main_card_utils' key={data.title}>
-                                <button className='tour_main_card_button'>
-                                 Read More</button>
+                                <Link to={`/blogs/${encodeURIComponent(data.title)}`}>
+                                    <button className='tour_main_card_button'>
+                                    Read More</button>
+                                </Link>
                                 <button className='tour_main_card_button'>Book Now</button>
                               </div>
                               {/* <ul style={{display: 'flex'}}>

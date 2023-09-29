@@ -50,9 +50,10 @@ function Stories() {
       setImgStyle("none");
     }
   }
-  axios.defaults.withCredentials = true;
+  // axios.defaults.withCredentials = true;
   useEffect(()=>{
-    axios.get("https://trip-planner-iq8f.vercel.app/getstories")
+    // axios.get("https://trip-planner-iq8f.vercel.app/getstories")
+    axios.get("http://localhost:3001/getstories")
     .then(response => {setCards(response.data)})
     .catch(error => {console.error('Error fetching data:', error);})
     

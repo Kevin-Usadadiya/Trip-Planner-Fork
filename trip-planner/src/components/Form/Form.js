@@ -116,7 +116,8 @@ function Form(props) {
     // Send POST request to server with the cityname
     // let ct = formdata.cityname
     // let ctname = ct.toLowerCase()
-   axios.post("https://trip-planner-iq8f.vercel.app/getplanner", { cityname })
+  //  axios.post("https://trip-planner-iq8f.vercel.app/getplanner", { cityname })
+   axios.post("http://localhost:3001/getplanner", { cityname })
           .then((response) => {
             const { cityname, Day1, Day2, Day3 } = response.data;
             setDay1(Day1);

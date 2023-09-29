@@ -23,7 +23,8 @@ function Home() {
   const [reviewData, setReviewData] = useState([]);
 
   useEffect(() => {
-    axios.get('https://trip-planner-iq8f.vercel.app/gethomes')
+    // axios.get('https://trip-planner-iq8f.vercel.app/gethomes')
+    axios.get('http://localhost:3001/gethomes')
     .then(response => {
       const { cardData, exploreData, reviewData } = response.data;
       setCardData(cardData);

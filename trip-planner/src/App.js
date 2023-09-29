@@ -75,9 +75,9 @@ export default function App() {
            </>
          }>
        </Route>
-         <Route exact path='/blogs' element={
+         <Route exact path='/blogs/:cityname' element={
            <>
-     <Navbar/>
+            <Navbar/>
            
              <Blog/>
              <Footer/>

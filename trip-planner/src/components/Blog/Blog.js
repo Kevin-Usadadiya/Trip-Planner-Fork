@@ -1,21 +1,22 @@
-import React from 'react'
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from "react-router-dom";
 import './Blog.css'
+import axios from 'axios'
 
 // import img1 from './images/newdelhi.jpg'
 
 function Blog() {
-    const Blog_arry = [{
-        "name": "New Delhi",
-        "img_source": "https://i.ibb.co/N7HM1D2/india-gate.jpg",
-        "details": [
-            "Delhi - the capital city of India is popular for its rich cultures and traditions. The city hosts some of the most majestic historical monuments and architectural marvels along with beautiful gardens and modern-day entertainment sites. In short, the city is a delight to people of every age.",
-            "Delhi is officially both a Union Territory and City located in Northern India. It covers an area of around 1484 sq km and bordered by the states of Haryana and Uttar Pradesh. It's officially referred to as the National Capital Territory of Delhi with New Delhi as its capital. The Urban area of the city consists of the satellite cities of Gurgaon, Noida, Ghaziabad and Faridabad, which are collectively called the Central National Capital Region (CNCR).",
-            "Q : WHAT IS DELHI BEST KNOWN FOR?",
-            "          The capital city of India has so many famous places for tourists to explore. Some of the popular places worth paying a visit are Qutab Minar, India Gate, Humayun's Tomb, Safdarjung Tomb, Red Fort, Purana Qila, Lodhi Garden, Jama Masjid, Lotus Temple, Akshardham, Garden of Five senses, Jantar Mantar, Agrasen ki Baoli, Rashtrapati Bhawan, ISKCON Temple, Gurudwara Bangla Sahib and more.",
-            "There are so many things Delhi is best known for. Delhi is popular for its ancient Mughal era's monuments. Delhi is popular for its mouth-watering spicy streets food. The cheap shopping places like Sarojni, Lajpat, Chandni Chowk, Palika make Delhi one of the best shopping destinations in the country. Delhi was the first city to incorporate Metro services. It's Metro connectivity and service is by far the best in the country. Delhi University is considered as one of the top universities in Asia. Students from different parts of the country and around the globe come here for pursuing further studies."
-        ]
-    }]
+    // const Blog_arry = [{
+    //     "name": "New Delhi",
+    //     "img_source": "https://i.ibb.co/N7HM1D2/india-gate.jpg",
+    //     "details": [
+    //         "Delhi - the capital city of India is popular for its rich cultures and traditions. The city hosts some of the most majestic historical monuments and architectural marvels along with beautiful gardens and modern-day entertainment sites. In short, the city is a delight to people of every age.",
+    //         "Delhi is officially both a Union Territory and City located in Northern India. It covers an area of around 1484 sq km and bordered by the states of Haryana and Uttar Pradesh. It's officially referred to as the National Capital Territory of Delhi with New Delhi as its capital. The Urban area of the city consists of the satellite cities of Gurgaon, Noida, Ghaziabad and Faridabad, which are collectively called the Central National Capital Region (CNCR).",
+    //         "Q : WHAT IS DELHI BEST KNOWN FOR?",
+    //         "          The capital city of India has so many famous places for tourists to explore. Some of the popular places worth paying a visit are Qutab Minar, India Gate, Humayun's Tomb, Safdarjung Tomb, Red Fort, Purana Qila, Lodhi Garden, Jama Masjid, Lotus Temple, Akshardham, Garden of Five senses, Jantar Mantar, Agrasen ki Baoli, Rashtrapati Bhawan, ISKCON Temple, Gurudwara Bangla Sahib and more.",
+    //         "There are so many things Delhi is best known for. Delhi is popular for its ancient Mughal era's monuments. Delhi is popular for its mouth-watering spicy streets food. The cheap shopping places like Sarojni, Lajpat, Chandni Chowk, Palika make Delhi one of the best shopping destinations in the country. Delhi was the first city to incorporate Metro services. It's Metro connectivity and service is by far the best in the country. Delhi University is considered as one of the top universities in Asia. Students from different parts of the country and around the globe come here for pursuing further studies."
+    //     ]
+    // }]
 
     // {
     //     "name":"Mumbai",
@@ -127,6 +128,29 @@ function Blog() {
     //         "It is better to avoid the monsoon season during the months of July to September. Even though the weather is pleasant, there is a risk of landslides."
     //     ]
     // }]
+    const {cityname} = useParams()
+    const [blogdata, setBlogData] = useState([])
+    const[detail,setDetail] =useState([])
+
+    useEffect(() => {
+        async function fetchBlogData() {
+          try {
+            const response = await axios.get(`http://localhost:3001/blogs/${encodeURIComponent(cityname)}`);
+            setBlogData(response.data);
+            setDetail(response.data.details);
+          } catch (error) {
+            console.error('Error fetching Blog details:', error);
+          }
+        }
+    
+        fetchBlogData();
+      }, [cityname]);
+    
+
+      console.log(blogdata)
+    //   const detail = blogdata.detail
+      console.log(detail)
+    
    
 
     return (
@@ -143,17 +167,17 @@ function Blog() {
                 <div className='col'>
                 <ul className='left_link'>
                     <li className='left_link_li'>
-                    <a href='#' className='menu-list left_link_a'>Mumbai</a>
+                    <Link to='/blogs/Mumbai' className='menu-list left_link_a'>Mumbai</Link>
                     </li>
                     <li className='left_link_li'>
-                    <a href='#' className='menu-list left_link_a'>Manali</a>
+                    <Link to='/blogs/Jaipur' className='menu-list left_link_a'>Jaipur</Link>
                     </li>
-                    <li className='left_link_li'><a href='#' className='menu-list left_link_a'>Shimala</a></li>
+                    <li className='left_link_li'><Link to='/blogs/Shimla' className='menu-list left_link_a'>Shimla</Link></li>
                     <li className='left_link_li'>
-                    <a href='#' className='menu-list left_link_a'>Kochi</a></li>
-                    <li className='left_link_li'><a href='#' className='menu-list left_link_a'>Goa</a></li>
-                    <li className='left_link_li'><a href='#' className='menu-list left_link_a'>Shimala</a></li>
-                    <li className='left_link_li'><a href='#' className='menu-list left_link_a'>Ahmedabad</a></li>
+                    <Link to='/blogs/Kochi' className='menu-list left_link_a'>Kochi</Link></li>
+                    <li className='left_link_li'><Link to='/blogs/Goa' className='menu-list left_link_a'>Goa</Link></li>
+                    <li className='left_link_li'><Link to='/blogs/New Delhi' className='menu-list left_link_a'>New Delhi</Link></li>
+                    <li className='left_link_li'><Link to='/blogs/Ahmedabad' className='menu-list left_link_a'>Ahmedabad</Link></li>
                 </ul>
 
                 </div>
@@ -169,22 +193,18 @@ function Blog() {
 
                 </section>
 
-            {
-                
-                
-                Blog_arry.map((list) => {
-                    return (<>
+
                       
                        <div className='hentry'>
                        <div class="wrapper">
             <div class="typing-demo">
-            {list.name}
+            {blogdata.name}
                  </div>
 </div>
                         
                             <div className='blog_img'>
 
-                                <img src={list.img_source} alt='sorry' className='blog_img1' />
+                                <img src={blogdata.img_source} alt='sorry' className='blog_img1' />
                             </div>
                             </div>
                          
@@ -194,7 +214,7 @@ function Blog() {
                             <div className='flex-child-element1 hentry_description '>
                                 {
                                     
-                                    list.details.map((para) => {
+                                    detail.map((para) => {
                                         return (
                                             <>
                                                     <p>{para}</p>
@@ -204,37 +224,38 @@ function Blog() {
                                     })
                                     
                                 }
-                                <a href='#' className='blog_btn'>Read more</a>
+                             
+                                <Link to='#' className='blog_btn'>Read more</Link>
                                 </div>
                        
                         <div className='flex-child-element2 hentry-card'>
                         <h2>Our Featured Posts</h2>
                         <div className='blog_card'>
                         <img src = "https://img.traveltriangle.com/blog/wp-content/uploads/2019/12/cover-image-of-Islands-Near-Phi-Phi_6th-dec-400x229.jpg" alt='sorry' className='blog_photo'></img>
-                        <a href="#" className='blog_btn'>6 Adventure Sports In Kochi That Will Let You Challenge Your Fears In 2023!</a>
+                        <Link to="#" className='blog_btn'>6 Adventure Sports In Kochi That Will Let You Challenge Your Fears In 2023!</Link>
                         </div>
                         <div className='blog_card'>
                         <img src = "https://img.traveltriangle.com/blog/wp-content/uploads/2019/11/Ahmedabad-18th_nov-400x225.jpg" alt='sorry' className='blog_photo'></img>
-                        <a href='#' className='blog_btn'>Top 26 Places To Visit Near Ahmedabad On Your Gujarat Vacation </a>
+                        <Link to='#' className='blog_btn'>Top 26 Places To Visit Near Ahmedabad On Your Gujarat Vacation </Link>
                         </div>
                         <div className='blog_card'>
                         <img src = "https://img.traveltriangle.com/blog/wp-content/uploads/2018/02/Apple-Country-Resort-400x267.jpg" alt='sorry' className='blog_photo'></img>
-                        <a href='#' className='blog_btn'>10 Best Resorts In Manali To Pamper The Nature Lover In You</a>
+                        <Link to='#' className='blog_btn'>10 Best Resorts In Manali To Pamper The Nature Lover In You</Link>
                         </div>
                         <div className='blog_card'>
                         <img src = "https://img.traveltriangle.com/blog/wp-content/uploads/2023/07/Mumbai-Cover.jpg" alt='sorry' className='blog_photo'></img>
-                        <a href='#' className='blog_btn'>8 Best Places To Visit In Mumbai For 2 Days</a>
+                        <Link to='#' className='blog_btn'>8 Best Places To Visit In Mumbai For 2 Days</Link>
                         </div>
                         <div className='blog_card'>
                         <img src = "https://i.ibb.co/9qsV8Mt/jaipur.png" alt='sorry' className='blog_photo'></img>
-                        <a href='#' className='blog_btn'>“The In-Depth Guide To… jaipur”</a>
+                        <Link to='#' className='blog_btn'>“The In-Depth Guide To… jaipur”</Link>
                         </div>
                         </div>
                         </div>
                       
-                    </>)
-                })
-            }
+                   
+               
+            
         </div>
     )}
     export default Blog

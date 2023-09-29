@@ -69,7 +69,7 @@ function Navbar() {
 
             <span className='li_img' ><div className='img_adjust'><img src="https://i.ibb.co/g686gS9/planner.png" alt="Planner" width="40px" height="40px" /></div><li className='navbar_item'><Link to="/form" onClick={handleBar} >Planner</Link></li></span>
 
-            <span className='li_img' ><div className='img_adjust'><img src="https://i.ibb.co/2NzRRkN/blogging.png" alt="Planner" width="40px" height="40px" /></div><li className='navbar_item'><Link to="/blogs" onClick={handleBar} >Blogs</Link></li></span>
+            <span className='li_img' ><div className='img_adjust'><img src="https://i.ibb.co/2NzRRkN/blogging.png" alt="Planner" width="40px" height="40px" /></div><li className='navbar_item'><Link to="/blogs/Ahmedabad" onClick={handleBar} >Blogs</Link></li></span>
          
           </ul>
         </div>
